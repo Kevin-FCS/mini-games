@@ -1,4 +1,4 @@
-# mini-games
+# Mini-games
 A series of web based party games.
 site estático para ter uma colecção de mini jogos
 para se jogar sozinho ou com mais pessoas.
