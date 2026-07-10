@@ -1,19 +1,51 @@
 # Mini-games
-A series of web based party games.
 
-site estático para ter uma colecção de mini jogos
-para se jogar sozinho ou com mais pessoas.
-primeiro jogo planeado: jogo inspirado no jogo do stop.
+A collection of browser-based games designed for parties and two-player experiences.
 
-funcionamento:
+Currently available:
+- Jogo do Stop
 
-escolhe-se o número de turnos e quantos segundos por turno;
+## Features
 
-existem um grupo de categorias e por turno uma letra do alfabeto
-é escolhido assim como uma categoria;
+- Random category selection
+- Random letter generation
+- Timed rounds
+- Score calculation
+- Works directly in the browser
 
-ao fim dos turnos todos contam-se os pontos à maneira do jogo do stop
-normal:
-cada jogador com palavra escrita ganha 10 pontos, os jogadores com a
-mesma palavra ganha 5 pontos e se só um jogador tiver palavra ele
-ganha 20 pontos;
+## Roadmap
+
+### Version 0.1
+- [x] Create project structure
+- [x] Implement Jogo do Stop
+- [x] Add timer system
+- [ ] Add scoring
+- [ ] Add category selection or deselection
+- [ ] Add more categories
+- [ ] Export category to json file
+
+### Version 0.2
+- [ ] Add more party games
+- [ ] Add multiple languages
+
+### Version 1.0
+- [ ] Improve mobile experience
+- [ ] Improve documentation
+
+## Technologies
+
+- HTML5
+- CSS3
+- JavaScript (ES Modules)
+
+## License
+
+MIT License
+
+## Project structure
+
+src/
+├── games/
+│   └── stop/
+|          └── css/ (wip)
+|          └── js/ (wip)
