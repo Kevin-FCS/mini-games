@@ -25,6 +25,9 @@ Currently available:
 - [ ] Export category to json file
 
 ### Version 0.2
+- [ ] Break the stop.js into smaller parts
+
+### Version 0.3
 - [ ] Add more party games
 - [ ] Add multiple languages
 
