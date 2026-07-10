@@ -4,61 +4,59 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Stop Aleatório</title>
-	<style>
-		body { font-family: Arial, sans-serif; padding: 20px; max-width: 1080px; margin: auto; }
-		label { display: block; margin: 8px 0; }
-		#game_label { font-size: 22px; margin: 20px 0; white-space: pre-line; }
-		#results { margin-top: 20px; }
-		.round-card { border: 1px solid #ccc; padding: 8px; margin: 6px; display:inline-block; width:170px; vertical-align:top; }
-		button { padding: 8px 12px; }
-        #letters_container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-
-        .letter-box {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        .letter-box input {
-            margin: 0;
-        }    
-	</style>
+	<link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-	<h1>Stop Aleatório com Tempo</h1>
 
-	<div id="setup">
-		<label>Número de rondas: <input id="rounds" type="number" value="3" min="1" size="3"></label>
-		<label>Segundos por ronda: <input id="seconds" type="number" value="10" min="1" size="3"></label>
+	<div id="game-rules-ui">
+		<h1>Bem vindo ao jogo do stop aleatório!</h1>
 
-		<label>Letras (desmarque para excluir):</label>
-		<div id="letters_controls" style="margin-bottom:6px">
-		  <button id="select_all_letters" type="button">Selecionar todas</button>
-		  <button id="clear_letters" type="button">Limpar seleção</button>
+		<div class="rules-content">
+			<h2>Regras</h2>
+			<ul>
+				<li>Escolhe-se o número de turnos e quantos segundos por turno</li>
+				<li>Existem um grupo de categorias: por turno uma letra do alfabeto é escolhido assim como uma categoria</li>
+				<li>Ao fim dos turnos todos contam-se os pontos à maneira do jogo do stop normal:
+					<ul>
+						<li>Cada jogador com palavra escrita ganha 10 pontos</li>
+						<li>Os jogadores com a mesma palavra ganham 5 pontos</li>
+						<li>Se só um jogador tiver palavra ganha 20 pontos</li>
+					</ul>
+				</li>
+			</ul>
 		</div>
-		<div id="letters_container" aria-label="Letras" style="max-width:820px"></div>
-
-		<button id="start">Começar jogo!</button>
+	</br>
+		<button id="start_game_btn" onclick="hideRulesShowGame()">Começar jogo!</button>
 	</div>
 
-	<div id="game" style="display:none;">
-		<div id="countdown" style="font-size:18px; margin-top:10px"></div>
-		<div id="game_label"></div>
+	<div id="game-ui">
+
+		<h1>Stop Aleatório com Tempo</h1>
+
+		<div id="setup">
+			<label>Número de rondas: <input id="rounds" type="number" value="3" min="1" size="3"></label>
+			<label>Segundos por ronda: <input id="seconds" type="number" value="10" min="1" size="3"></label>
+
+			<label>Letras (desmarque para excluir):</label>
+			<div id="letters_controls" style="margin-bottom:6px">
+			<button id="select_all_letters" type="button">Selecionar todas</button>
+			<button id="clear_letters" type="button">Limpar seleção</button>
+			</div>
+			<div id="letters_container" aria-label="Letras" style="max-width:820px"></div>
+
+			<button id="start">Começar jogo!</button>
+		</div>
+
+		<div id="game" style="display:none;">
+			<div id="countdown" style="font-size:18px; margin-top:10px"></div>
+			<div id="game_label"></div>
+		</div>
+
+		<div id="results"></div>
+
 	</div>
 
-	<div id="results"></div>
-
+	<script src="util.js"></script>
 	<script src="stop.js"></script>
 </body>
 </html>

@@ -1,0 +1,61 @@
+body { font-family: Arial, sans-serif; padding: 20px; max-width: 1080px; margin: auto; text-align: center }
+label { display: block; margin: 8px 0; }
+#game_label { font-size: 22px; margin: 20px 0; white-space: pre-line; }
+#results { margin-top: 20px; }
+.round-card { border: 1px solid #ccc; padding: 8px; margin: 6px; display:inline-block; width:170px; vertical-align:top; }
+button { padding: 8px 12px; }
+#letters_container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+}
+
+.letter-box {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.letter-box input {
+    margin: 0;
+}
+
+#game-rules-ui {
+    margin-bottom: 20px;
+}
+
+.rules-content {
+    background-color: #bbaeae;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+    display: inline-block;
+    max-width: 800px;
+    margin-bottom: 5px;
+}
+
+.rules-content h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.rules-content ul {
+    margin: 10px 0;
+}
+
+.rules-content li {
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+#game-ui {
+    display: none;
+}

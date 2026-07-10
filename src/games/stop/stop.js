@@ -117,6 +117,7 @@
 
   startBtn.addEventListener('click', startGame);
 
+
   /**
    * startGame
    * Validate inputs, compute `availableLetters` from the checkboxes, clear
