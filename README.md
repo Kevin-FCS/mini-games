@@ -20,7 +20,7 @@ Currently available:
 - [x] Implement Jogo do Stop
 - [x] Add timer system
 - [ ] Add scoring
-- [ ] Add category selection or deselection
+- [x] Add category selection or deselection
 - [ ] Add more categories
 - [ ] Export category to json file
 
