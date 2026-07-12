@@ -11,6 +11,13 @@ button { padding: 8px 12px; }
     justify-content: center;
 }
 
+#categories_container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+}
+
 .letter-box {
     width: 40px;
     height: 40px;

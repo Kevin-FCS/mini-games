@@ -44,6 +44,13 @@
 			</div>
 			<div id="letters_container" aria-label="Letras" style="max-width:820px"></div>
 
+			<label>Categorias (desmarque para excluir):</label>
+			<div id="categories_controls" style="margin-bottom:6px">
+			<button id="select_all_categories" type="button">Selecionar todas</button>
+			<button id="clear_categories" type="button">Limpar seleção</button>
+			</div>
+			<div id="categories_container" aria-label="Categorias" style="max-width:820px"></div>
+
 			<button id="start">Começar jogo!</button>
 		</div>
 
@@ -57,6 +64,6 @@
 	</div>
 
 	<script src="util.js"></script>
-	<script src="stop.js"></script>
+	<script type="module" src="stop.js"></script>
 </body>
 </html>

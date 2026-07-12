@@ -10,6 +10,7 @@
   - Run a 3-second countdown, then schedule round updates at the configured interval
   - Avoid repeating the same category on consecutive rounds
   - Show results (letter + category per round) and allow replay
+  - Manage category selection via categories.js module
 
   Implementation notes / rationale:
   - Uses `DOMContentLoaded` to render and wire the checkbox UI so the script can be placed
@@ -20,9 +21,11 @@
     modes disallow storage; failure should not break the game.
   - `availableLetters` keeps the current pool of letters; this is computed from the
     checkboxes when starting a new game so users can change selections between games.
-
-  The file avoids global variables by wrapping everything in an IIFE.
+  - Category selection is delegated to categories.js module to keep stop.js focused.
 */
+
+import { loadCategories, renderCategoryCheckboxes, getSelectedCategories } from './js/categories.js';
+
 (function () {
   const baseLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","X","Z","W","Y"];
   let categories = [];
@@ -49,15 +52,15 @@
    */
   function chooseRandom(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 
-  // Load categories from stop.json (fallback to defaults)
-  fetch('stop.json').then(r => r.json()).then(data => {
-    if (data && Array.isArray(data.categories)) categories = data.categories;
+  // Load categories from stop.json (fallback to defaults) and render checkboxes
+  loadCategories().then(loaded => {
+    categories = loaded;
   }).catch(() => {
     categories = ["Animais","Países","Comidas","Cores"];
   });
 
-  // Render letter checkboxes into #letters_container
-  document.addEventListener('DOMContentLoaded', () => {
+  // Render letter and category checkboxes
+  document.addEventListener('DOMContentLoaded', async () => {
     const container = document.getElementById('letters_container');
     if (!container) return;
     baseLetters.forEach(l => {
@@ -86,6 +89,9 @@
       // set checkboxes according to saved list
       document.querySelectorAll('.letter-checkbox').forEach(cb => { cb.checked = saved.includes(cb.value); });
     }
+
+    // render category checkboxes from categories.js module
+    await renderCategoryCheckboxes();
   });
 
   function setAllLetters(checked) {
@@ -186,15 +192,18 @@
    * Pick a random letter and a non-repeating category and display them.
    * The picked values are appended to `lettersList`/`categoriesList` for later
    * result display.
+   * Uses getSelectedCategories() to get the user's category selection.
    * @param {number} round - 1-based round index
    */
   function showRound(round) {
     const letter = chooseRandom(availableLetters);
 
-    // choose a category
+    // choose a category from the user's selected categories
+    const selectedCategories = getSelectedCategories();
+    const categoriesToUse = selectedCategories.length ? selectedCategories : categories.length ? categories : ["Animais","Países","Comidas","Cores"];
     let category;
     do {
-      category = chooseRandom(categories.length ? categories : ["Animais","Países","Comidas","Cores"]);
+      category = chooseRandom(categoriesToUse);
     } while (category === lastCategory);
     lastCategory = category;
 
