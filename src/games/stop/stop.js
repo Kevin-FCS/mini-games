@@ -25,6 +25,8 @@
 */
 
 import { loadCategories, renderCategoryCheckboxes, getSelectedCategories } from './js/categories.js';
+import { renderLetterCheckboxes } from './js/letters.js';
+
 
 (function () {
   const baseLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","X","Z","W","Y"];
@@ -271,4 +273,6 @@ import { loadCategories, renderCategoryCheckboxes, getSelectedCategories } from 
     document.getElementById('setup').style.display = 'block';
   }
 
-})();
+})//();
+
+renderLetterCheckboxes();
