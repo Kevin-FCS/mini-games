@@ -44,11 +44,3 @@ Currently available:
 ## License
 
 MIT License
-
-## Project structure
-
-src/
-├── games/
-│   └── stop/
-|          └── css/ (wip)
-|          └── js/ (wip)
